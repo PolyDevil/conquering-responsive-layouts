@@ -23,15 +23,52 @@ body {
   font-family: sans-serif;
 }
 
-.container {
-  width: 80%;
-  max-width: 750px;
-  margin: 0 auto;
-  background: #23424a;
-  color: white;
-  padding: 50px 0;
+main {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 60ch) 1fr;
+  column-gap: 1em;
+
+  color: black;
+  font-size: 16px;
+  word-break: break-all;
+
+  padding-block-end: 2em;
+
+  position: relative;
 }
 
-.intro-content {
-  width: 50%;
+main > * {
+  grid-column: 2/3;
+}
+
+section {
+  color: #fff;
+  padding-block: 2em;
+  --line-length: 40;
+}
+
+section > h1 {
+  --k: 2;
+}
+
+section > * {
+  --k: 1;
+  font-size: calc(var(--k) * 1em);
+  max-inline-size: max(50%, calc(var(--line-length) / var(--k) * 1ch));
+  text-wrap: balance;
+}
+
+section::before {
+  content: "";
+  grid-column: 1/-1;
+  grid-row: 1/2;
+  background: #23424a;
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+h2 {
+  padding-block-start: 1.5em;
 }
