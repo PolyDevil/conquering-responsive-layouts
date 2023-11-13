@@ -21,7 +21,7 @@ body {
   font-family: sans-serif;
 }
 
-.container {
+main {
   background: #23424a;
   color: white;
 
@@ -29,5 +29,18 @@ body {
   margin: 0 auto;
 
   padding: 2em;
-  height: 300px;
+  /*
+    dont hard-code height;
+    height: 300px;
+  */
+}
+
+main > h1 {
+  max-inline-size: max(50%, 28ch);
+  text-wrap: balance;
+}
+
+main > p {
+  max-inline-size: max(50%, 60ch);
+  text-wrap: balance;
 }
