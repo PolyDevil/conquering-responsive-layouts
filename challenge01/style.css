@@ -29,18 +29,22 @@ main {
   margin-inline: auto;
 
   padding: 2em;
+
+  font-size: 16px;
+  --line-length: 60;
+
   /*
-    dont hard-code height;
-    height: 300px;
+  height: 300px; // dont hard-code height;
   */
 }
 
 main > h1 {
-  max-inline-size: max(50%, 28ch);
-  text-wrap: balance;
+  --k: 2;
 }
 
-main > p {
-  max-inline-size: max(50%, 60ch);
+main > * {
+  --k: 1;
+  font-size: calc(var(--k) * 1em);
+  max-inline-size: max(50%, calc(var(--line-length) / var(--k) * 1ch));
   text-wrap: balance;
 }
